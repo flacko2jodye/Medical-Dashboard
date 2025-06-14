@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5>User Report</h5>
+        <form method="post" class="form-inline">
+            <input type="number" name="row_number" class="form-control mr-2" placeholder="Enter row number" required>
+            <button type="submit" class="btn btn-primary">Get Report</button>
+        </form>
+        <div class="mt-4">
+            {{ user_data | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

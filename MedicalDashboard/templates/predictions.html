@@ -1,0 +1,33 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Train and Predict (Classification)</h5>
+        <form method="post">
+            <div class="form-group">
+                <label for="target_column">Target Column</label>
+                <input type="text" class="form-control" id="target_column" name="target_column" value="Outcome" required>
+                <small class="form-text text-muted">Try using <strong>Outcome</strong> if you're working with a diabetes dataset.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Train Classifier</button>
+        </form>
+        {% if prediction %}
+        <hr>
+        <p><strong>Best Model:</strong> {{ model_name }}</p>
+        <p><strong>Predicted Class (first test case):</strong> {{ prediction }}</p>
+        <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+        <p><strong>Best Parameters:</strong> {{ best_params }}</p>
+
+<pre class="bg-light p-2 rounded"><strong>Classification Report:</strong>
+{{ report }}
+</pre>
+
+        <h5>Feature Importance</h5>
+        <img src="data:image/png;base64,{{ feature_plot }}" class="img-fluid mt-3">
+
+        <h5 class="mt-4">Confusion Matrix</h5>
+        <img src="data:image/png;base64,{{ confusion_plot }}" class="img-fluid mt-2">
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

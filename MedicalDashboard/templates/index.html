@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Medical Dashboard</h1>
+    <p class="lead">Upload your medical data and get insightful reports and predictions.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('upload_blueprint.upload_file') }}">Get Started</a>
+</div>
+{% endblock %}
